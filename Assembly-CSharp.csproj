@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ActiveCylinderCollider.cs" />
      <Compile Include="Assets\Scripts\ActiveCylinderData.cs" />
+     <Compile Include="Assets\Scripts\AnimatorPositionController.cs" />
      <Compile Include="Assets\Scripts\AttackController.cs" />
      <Compile Include="Assets\Scripts\AttackData.cs" />
      <Compile Include="Assets\Scripts\AttackStateMachine.cs" />

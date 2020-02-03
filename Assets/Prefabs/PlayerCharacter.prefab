@@ -1324,6 +1324,7 @@ GameObject:
   - component: {fileID: 4382162173478587407}
   - component: {fileID: 82816352655530118}
   - component: {fileID: 82016598985040058}
+  - component: {fileID: 114318387697880372}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -1398,6 +1399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FighterData: {fileID: 11400000, guid: e664377dc07c6c24282b4f128ba6fa89, type: 2}
   health: 500
+  isAttacking: 0
+  isRecovering: 0
   isNeutral: 0
   isHurting: 0
   isAlive: 1
@@ -1487,6 +1490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fighter: {fileID: 1363497325}
   whooshSource: {fileID: 4382162173478587407}
+  currentAttack: {fileID: 0}
 --- !u!82 &4382162173478587407
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1775,6 +1779,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114318387697880372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7548655428029908775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e6028a2f80ceb4c883c6d2ade7135e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7548655428029908777
 GameObject:
   m_ObjectHideFlags: 0
