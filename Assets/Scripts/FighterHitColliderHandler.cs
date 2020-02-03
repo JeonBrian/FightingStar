@@ -30,6 +30,7 @@ public class FighterHitColliderHandler : MonoBehaviour
         AttackData attackData = Resources.Load<AttackData>("Frank/Attacks/" + attackName);
         if (attackData != null)
         {
+            Debug.Log("Draw active");
             // Instantiate Active Cylinder
             currentActiveCylinder = Instantiate(activeCylinder, new Vector3(0, 0, 0), Quaternion.identity).gameObject;
 

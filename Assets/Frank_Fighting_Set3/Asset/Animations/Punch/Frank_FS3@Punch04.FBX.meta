@@ -201,7 +201,7 @@ ModelImporter:
       name: Punch04
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 56
+      lastFrame: 41
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -221,14 +221,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.23959729
+      - time: 0.3909131
         functionName: ActivateHitCollider
         data: Punch04
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.29244962
+      - time: 0.47008118
         functionName: DeactivateHitCollider
         data: 
         objectReferenceParameter: {instanceID: 0}

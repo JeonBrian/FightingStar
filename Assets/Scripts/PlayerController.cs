@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode punch2;
     public KeyCode kick1;
     public KeyCode kick2;
+    public KeyCode kick9;
 
     public float speed = 2;
 

@@ -1424,6 +1424,7 @@ MonoBehaviour:
   punch2: 116
   kick1: 102
   kick2: 103
+  kick9: 112
   speed: 1.2
 --- !u!114 &3579996232616271608
 MonoBehaviour:
