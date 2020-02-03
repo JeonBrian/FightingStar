@@ -29,7 +29,6 @@ public class AttackController : MonoBehaviour
             }
             if (Input.GetKeyUp(attackData.inputKeyCode))
             {
-                anim.SetBool("IsNeutral", true);
                 anim.SetBool(attackData.attackAnimation, false);
             }
         }

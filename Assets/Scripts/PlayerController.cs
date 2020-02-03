@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Move character in space
-        Debug.Log("Move: " + moveState);
+        // Debug.Log("Move: " + moveState);
         if (anim.GetBool("IsNeutral"))
         {
             controller.Move(moveDir * Time.deltaTime);
