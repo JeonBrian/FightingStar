@@ -7,6 +7,8 @@ public class Fighter : MonoBehaviour
 {
     public FighterData FighterData;
     public float health; // Current health, derived from FighterData
+    public bool isAttacking;
+    public bool isRecovering;
     public bool isNeutral;
     public bool isHurting;
     public bool isAlive;
@@ -33,6 +35,8 @@ public class Fighter : MonoBehaviour
     {
         SetIsNeutral(true);
         health = FighterData.health;
+        isAttacking = false;
+        isRecovering = false;
         isHurting = false;
         isAlive = true;
         SetRagdoll(false);
@@ -58,7 +62,19 @@ public class Fighter : MonoBehaviour
     public void SetIsNeutral(bool isNeutral)
     {
         this.isNeutral = isNeutral;
-        animator.SetBool("IsNeutral", true);
+        animator.SetBool("IsNeutral", isNeutral);
+    }
+
+    public void SetIsAttacking(bool isAttacking)
+    {
+        this.isAttacking = isAttacking;
+        animator.SetBool("IsAttacking", isAttacking);
+    }
+
+    public void SetIsRecovering(bool isRecovering)
+    {
+        this.isRecovering = isRecovering;
+        animator.SetBool("IsRecovering", isRecovering);
     }
 
     public void Die()

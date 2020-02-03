@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideColliders: 0
-  ownerFigher: {fileID: 1363497325}
+  ownerFighter: {fileID: 1363497325}
   activeCylinder: {fileID: 6698450443594480040, guid: b9b45519e0f8dfd4c8b0df01f9168e19,
     type: 3}
   leftHand: {fileID: 7548655428029881097}

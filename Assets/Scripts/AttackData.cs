@@ -10,4 +10,5 @@ public class AttackData : ScriptableObject
     public string attackAnimation;
     public string hitAnimation;
     public ActiveCylinderData activeCylinderData;
+    public AttackData[] chainAttacks;
 }

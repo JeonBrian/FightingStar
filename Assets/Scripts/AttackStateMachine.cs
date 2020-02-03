@@ -12,7 +12,11 @@ public class AttackStateMachine : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Fighter fighter = animator.GetComponent<Fighter>();
-        fighter.SetIsNeutral(true);
-        Debug.Log("Animation ended: " + fighter.FighterData.name);
+        AttackController attackController = animator.GetComponent<AttackController>();
+        if (fighter.isRecovering && !fighter.isAttacking)
+        {
+            Debug.Log("he is recovering and not attacking, so set back to neutral");
+            attackController.FinishAttack();
+        }
     }
 }

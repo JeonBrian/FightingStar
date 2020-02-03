@@ -19,3 +19,5 @@ MonoBehaviour:
   attackAnimation: Kick02
   hitAnimation: HitMidF
   activeCylinderData: {fileID: 11400000, guid: af9478bfa11884049a2f621d2cfc0d9e, type: 2}
+  chainAttacks:
+  - {fileID: 11400000, guid: 5365620e419556049ba7189658c3c41f, type: 2}

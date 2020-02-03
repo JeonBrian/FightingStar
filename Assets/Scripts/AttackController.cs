@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
     public Fighter fighter;
-    Animator anim;
     public AudioSource whooshSource;
+    public AttackData currentAttack;
+
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +20,64 @@ public class AttackController : MonoBehaviour
         // For each attack possible attack move, check if it was pressed
         foreach (AttackData attackData in fighter.FighterData.attackDatas)
         {
-            if (Input.GetKey(attackData.inputKeyCode))
+            if (Input.GetKey(attackData.inputKeyCode) && CanPlayAttack(attackData))
             {
-                whooshSource.Play();
-                anim.SetBool("IsNeutral", false);
-                anim.SetBool(attackData.attackAnimation, true);
-
+                PlayAttack(attackData);
             }
             if (Input.GetKeyUp(attackData.inputKeyCode))
             {
                 anim.SetBool(attackData.attackAnimation, false);
             }
         }
+    }
+
+    bool CanPlayAttack(AttackData attackData)
+    {
+        if ((fighter.isNeutral && currentAttack == null) ||
+            (fighter.isRecovering && PreviousAttackIsChain(attackData)))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // Return if previous attack is able to chain into the new attack
+    bool PreviousAttackIsChain(AttackData newAttack)
+    {
+        Debug.Log("I have to check!");
+        if (currentAttack != null)
+        {
+            foreach (var chainAttack in currentAttack.chainAttacks)
+            {
+                if (newAttack.name == chainAttack.name)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    void PlayAttack(AttackData attackData)
+    {
+        currentAttack = attackData;
+        whooshSource.Play();
+        fighter.SetIsNeutral(false);
+        fighter.SetIsRecovering(false);
+        fighter.SetIsAttacking(true);
+        anim.SetBool(attackData.attackAnimation, true);
+        Debug.Log("Atack: " + currentAttack.name);
+    }
+
+    public void FinishAttack()
+    {
+        Debug.Log("finishing" + currentAttack.name);
+        currentAttack = null;
+        fighter.SetIsNeutral(true);
+        fighter.SetIsRecovering(false);
+        fighter.SetIsAttacking(false);
     }
 }
