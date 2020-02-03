@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44bbce63c5bf67b44b3137899d21fe70, type: 3}
+  m_Name: Frank
+  m_EditorClassIdentifier: 
+  name: Frank
+  health: 50
+  description: My first character.
+  hurtSphereDatas:
+  - {fileID: 11400000, guid: 9f20f8eedda9ae24e96565351fe78002, type: 2}
+  - {fileID: 11400000, guid: 76f5c1237b1052f4091138b0bf87c893, type: 2}
+  - {fileID: 11400000, guid: 5c369a98d945065429a926458b605ac7, type: 2}
+  - {fileID: 11400000, guid: 8a1a4a0549e95e74c8b52b235c10c001, type: 2}
+  - {fileID: 11400000, guid: 4fb701f9d7f04d544a8ed53a864ae391, type: 2}
+  - {fileID: 11400000, guid: 83cb67a5bb3ddc744ab2daf8b674c074, type: 2}
+  - {fileID: 11400000, guid: 7322862386102994d817e137d55668c5, type: 2}
+  - {fileID: 11400000, guid: cc87f1ba4da58e84c8964cf15f0e38c5, type: 2}
+  - {fileID: 11400000, guid: bf33d617462f2484584196bfb67b937f, type: 2}
+  - {fileID: 11400000, guid: fb8c08b9088068a49a8de9a64e038157, type: 2}
+  - {fileID: 11400000, guid: dae20e83b73d7354785c62659e14572f, type: 2}
+  attackDatas:
+  - {fileID: 11400000, guid: 657c6b802f0b35246a919299cc7a3b4b, type: 2}
+  - {fileID: 11400000, guid: 9060bfe53beee94419e418b627ebecd0, type: 2}
+  - {fileID: 11400000, guid: 8bb1c96a321daca4e8c07c6e95345b16, type: 2}
+  - {fileID: 11400000, guid: 7a72916c0eb006d4592021ecafaf1abc, type: 2}

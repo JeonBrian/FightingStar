@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2b3df9b5c60a5439c11f75030e15a2, type: 3}
+  m_Name: Punch06
+  m_EditorClassIdentifier: 
+  name: Right Straight
+  description: A swift punch with the right fist.
+  damage: 9
+  inputKeyCode: 111
+  attackAnimation: Punch06
+  hitAnimation: HitHighF
+  activeCylinderData: {fileID: 11400000, guid: b7ae4e12749071c449ec02fc96a4e113, type: 2}
