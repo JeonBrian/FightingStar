@@ -1161,11 +1161,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1363497325, guid: 67c061d523f246c438c600d828d9beb1, type: 3}
       propertyPath: health
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1363497325, guid: 67c061d523f246c438c600d828d9beb1, type: 3}
       propertyPath: fighterName
       value: BJ
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363497325, guid: 67c061d523f246c438c600d828d9beb1, type: 3}
+      propertyPath: isNeutral
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 668184769513302206, guid: 67c061d523f246c438c600d828d9beb1,
         type: 3}
