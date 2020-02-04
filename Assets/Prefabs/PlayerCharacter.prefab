@@ -1361,7 +1361,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: e691eb0297f8c0342a3e65912ca50862, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1404,8 +1404,11 @@ MonoBehaviour:
   isNeutral: 0
   isHurting: 0
   isAlive: 1
+  isHitStun: 0
   hitSource: {fileID: 82816352655530118}
   dieSource: {fileID: 82016598985040058}
+  comboHitStun: 0
+  fighterState: 0
 --- !u!114 &7548655428783979437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1786,7 +1789,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7548655428029908775}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2e6028a2f80ceb4c883c6d2ade7135e, type: 3}
   m_Name: 

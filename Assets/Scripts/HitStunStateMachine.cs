@@ -7,6 +7,11 @@ public class HitStunStateMachine : StateMachineBehaviour
     {
         Fighter fighter = animator.GetComponent<Fighter>();
         AttackController attackController = animator.GetComponent<AttackController>();
-        fighter.SetFighterState(FighterState.Neutral);
+        fighter.DecrementComboHitStun();
+        if (fighter.comboHitStun == 0 && fighter.fighterState == FighterState.HitStun)
+        {
+            fighter.SetFighterState(FighterState.Neutral);
+            fighter.ResetComboHitStun();
+        }
     }
 }

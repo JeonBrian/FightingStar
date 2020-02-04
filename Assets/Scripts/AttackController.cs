@@ -48,7 +48,6 @@ public class AttackController : MonoBehaviour
     // Return if previous attack is able to chain into the new attack
     bool PreviousAttackIsChain(AttackData newAttack)
     {
-        Debug.Log("I have to check!");
         if (currentAttack != null)
         {
             foreach (var chainAttack in currentAttack.chainAttacks)

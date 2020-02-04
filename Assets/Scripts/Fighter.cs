@@ -15,6 +15,7 @@ public class Fighter : MonoBehaviour
     public bool isHitStun;
     public AudioSource hitSource;
     public AudioSource dieSource;
+    public int comboHitStun;
 
     public FighterState fighterState;
 
@@ -39,6 +40,7 @@ public class Fighter : MonoBehaviour
         SetFighterState(FighterState.Neutral);
         health = FighterData.health;
         isAlive = true;
+        ResetComboHitStun();
         SetRagdoll(false);
         Debug.Log("Loaded fighter..." + FighterData.description);
     }
@@ -47,9 +49,7 @@ public class Fighter : MonoBehaviour
     {
         if (isAlive)
         {
-            health -= damage;
-            SetIsHitStun(true);
-            hitSource.Play();
+            ApplyDamage(damage, hitAnimation);
 
             if (health <= 0)
             {
@@ -59,23 +59,42 @@ public class Fighter : MonoBehaviour
         }
     }
 
+    public void ApplyDamage(float damage, string hitAnimation)
+    {
+        health -= damage;
+        IncrementComboHitStun();
+        SetFighterState(FighterState.HitStun);
+
+        // Interrupt whatever and play this animation
+        animator.Play(hitAnimation, -1, 0f);
+        SetFighterState(FighterState.HitStun);
+
+        // Play sound: move this
+        hitSource.Play();
+    }
+
+    // ComboHitStun is used for keeping track of how many times the character was hit in a single sequence.
+    // This is used to make sure combos are not ended prematurely.
+    public void ResetComboHitStun()
+    {
+        comboHitStun = 0;
+    }
+
+    public void DecrementComboHitStun()
+    {
+        comboHitStun--;
+    }
+
+    void IncrementComboHitStun()
+    {
+        comboHitStun++;
+    }
+
     // Sets the fighterState on the fighter and the anim
     public void SetFighterState(FighterState fighterState)
     {
         this.fighterState = fighterState;
         animator.SetInteger("FighterState", fighterState.GetHashCode());
-    }
-
-    public void SetIsHitStun(bool isHitStun)
-    {
-        animator.SetBool("HitHighF", true);
-        this.isHitStun = isHitStun;
-        animator.SetBool("IsHitStun", isHitStun);
-        // Replace
-        // SetIsRecovering(false);
-        // SetIsAttacking(false);
-        // SetIsNeutral(false);
-        Debug.Log("set is hitstun for " + gameObject.name + animator.GetBool("HitHighF"));
     }
 
     public void Die()
