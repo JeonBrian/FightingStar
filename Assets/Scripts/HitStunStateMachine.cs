@@ -12,6 +12,7 @@ public class HitStunStateMachine : StateMachineBehaviour
         {
             fighter.SetFighterState(FighterState.Neutral);
             fighter.ResetComboHitStun();
+            fighter.SetIsFloating(false);
         }
     }
 }

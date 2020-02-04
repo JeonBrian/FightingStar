@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Frank
   m_EditorClassIdentifier: 
   name: Frank
-  health: 500
+  health: 100
   description: My first character.
   hurtSphereDatas:
   - {fileID: 11400000, guid: 9f20f8eedda9ae24e96565351fe78002, type: 2}

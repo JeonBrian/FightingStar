@@ -16,6 +16,7 @@ public class Fighter : MonoBehaviour
     public AudioSource hitSource;
     public AudioSource dieSource;
     public int comboHitStun;
+    public bool isFloating;
 
     public FighterState fighterState;
 
@@ -40,6 +41,7 @@ public class Fighter : MonoBehaviour
         SetFighterState(FighterState.Neutral);
         health = FighterData.health;
         isAlive = true;
+        SetIsFloating(false);
         ResetComboHitStun();
         SetRagdoll(false);
         Debug.Log("Loaded fighter..." + FighterData.description);
@@ -66,8 +68,21 @@ public class Fighter : MonoBehaviour
         SetFighterState(FighterState.HitStun);
 
         // Interrupt whatever and play this animation
-        animator.Play(hitAnimation, -1, 0f);
+        if (isFloating == false)
+        {
+            animator.Play(hitAnimation, -1, 0f);
+        }
+        else
+        {
+            animator.Play("HitAir", -1, 0f);
+        }
         SetFighterState(FighterState.HitStun);
+
+        // If hitScrew, then set juggle state
+        if (hitAnimation == "HitScrew" || hitAnimation == "HitKnockDown02" || hitAnimation == "HitSpin")
+        {
+            SetIsFloating(true);
+        }
 
         // Play sound: move this
         hitSource.Play();
@@ -97,13 +112,19 @@ public class Fighter : MonoBehaviour
         animator.SetInteger("FighterState", fighterState.GetHashCode());
     }
 
+    public void SetIsFloating(bool isFloating)
+    {
+        this.isFloating = isFloating;
+        animator.SetBool("IsFloating", isFloating);
+    }
+
     public void Die()
     {
         dieSource.Play();
         isNeutral = false;
         isAlive = false;
         // Blowback();
-        animator.SetTrigger("HitKnockDown01");
+        animator.Play("HitKnockDown01", -1, 0f);
         Invoke("Restart", 1.5f);
     }
 

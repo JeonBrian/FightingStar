@@ -17,5 +17,6 @@ MonoBehaviour:
   damage: 40
   inputKeyCode: 105
   attackAnimation: Punch04
-  hitAnimation: HitHighF
+  hitAnimation: HitScrew
   activeCylinderData: {fileID: 11400000, guid: 8d5e26ecf96c49f48880a9b3700bc6d3, type: 2}
+  chainAttacks: []
