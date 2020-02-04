@@ -1441,7 +1441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92615a8eb170ba046af64da4c0638083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideColliders: 0
+  hideColliders: 1
   hurtSphere: {fileID: 1248913933938111409, guid: 8c849221c6d5f704097a74f20984064a,
     type: 3}
   fighter: {fileID: 1363497325}
@@ -1468,7 +1468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c4752cd45d0094eac9e52df0ac051b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hideColliders: 0
+  hideColliders: 1
   ownerFighter: {fileID: 1363497325}
   activeCylinder: {fileID: 6698450443594480040, guid: b9b45519e0f8dfd4c8b0df01f9168e19,
     type: 3}

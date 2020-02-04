@@ -62,7 +62,9 @@
      <Compile Include="Assets\Scripts\Fighter.cs" />
      <Compile Include="Assets\Scripts\FighterData.cs" />
      <Compile Include="Assets\Scripts\FighterHitColliderHandler.cs" />
+     <Compile Include="Assets\Scripts\FighterStateEnum.cs" />
      <Compile Include="Assets\Scripts\GameInformation.cs" />
+     <Compile Include="Assets\Scripts\HitStunStateMachine.cs" />
      <Compile Include="Assets\Scripts\HurtSphereCaster.cs" />
      <Compile Include="Assets\Scripts\HurtSphereCollider.cs" />
      <Compile Include="Assets\Scripts\HurtSphereData.cs" />

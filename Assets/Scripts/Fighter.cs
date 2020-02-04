@@ -12,8 +12,11 @@ public class Fighter : MonoBehaviour
     public bool isNeutral;
     public bool isHurting;
     public bool isAlive;
+    public bool isHitStun;
     public AudioSource hitSource;
     public AudioSource dieSource;
+
+    public FighterState fighterState;
 
     Animator animator;
 
@@ -33,11 +36,8 @@ public class Fighter : MonoBehaviour
     // Instantiate fighter
     void LoadFighter()
     {
-        SetIsNeutral(true);
+        SetFighterState(FighterState.Neutral);
         health = FighterData.health;
-        isAttacking = false;
-        isRecovering = false;
-        isHurting = false;
         isAlive = true;
         SetRagdoll(false);
         Debug.Log("Loaded fighter..." + FighterData.description);
@@ -48,7 +48,7 @@ public class Fighter : MonoBehaviour
         if (isAlive)
         {
             health -= damage;
-            animator.SetTrigger(hitAnimation);
+            SetIsHitStun(true);
             hitSource.Play();
 
             if (health <= 0)
@@ -59,22 +59,23 @@ public class Fighter : MonoBehaviour
         }
     }
 
-    public void SetIsNeutral(bool isNeutral)
+    // Sets the fighterState on the fighter and the anim
+    public void SetFighterState(FighterState fighterState)
     {
-        this.isNeutral = isNeutral;
-        animator.SetBool("IsNeutral", isNeutral);
+        this.fighterState = fighterState;
+        animator.SetInteger("FighterState", fighterState.GetHashCode());
     }
 
-    public void SetIsAttacking(bool isAttacking)
+    public void SetIsHitStun(bool isHitStun)
     {
-        this.isAttacking = isAttacking;
-        animator.SetBool("IsAttacking", isAttacking);
-    }
-
-    public void SetIsRecovering(bool isRecovering)
-    {
-        this.isRecovering = isRecovering;
-        animator.SetBool("IsRecovering", isRecovering);
+        animator.SetBool("HitHighF", true);
+        this.isHitStun = isHitStun;
+        animator.SetBool("IsHitStun", isHitStun);
+        // Replace
+        // SetIsRecovering(false);
+        // SetIsAttacking(false);
+        // SetIsNeutral(false);
+        Debug.Log("set is hitstun for " + gameObject.name + animator.GetBool("HitHighF"));
     }
 
     public void Die()

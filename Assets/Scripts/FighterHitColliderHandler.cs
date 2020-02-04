@@ -12,16 +12,16 @@ public class FighterHitColliderHandler : MonoBehaviour
 
     private GameObject currentActiveCylinder;
 
+    // Fighter has entered attack active state
     void ActivateHitCollider(string attackName)
     {
         DrawActiveCylinder(attackName);
     }
 
+    // Active frames have ended, put figher into recovery state
     void DeactivateHitCollider()
     {
-        ownerFighter.SetIsNeutral(false);
-        ownerFighter.SetIsAttacking(false);
-        ownerFighter.SetIsRecovering(true);
+        ownerFighter.SetFighterState(FighterState.Recovering);
         DestroyActiveCylinder();
     }
 

@@ -33,8 +33,9 @@ public class AttackController : MonoBehaviour
 
     bool CanPlayAttack(AttackData attackData)
     {
-        if ((fighter.isNeutral && currentAttack == null) ||
-            (fighter.isRecovering && PreviousAttackIsChain(attackData)))
+        if (((fighter.fighterState == FighterState.Neutral || fighter.fighterState == FighterState.Walking) &&
+                currentAttack == null) ||
+            (fighter.fighterState == FighterState.Recovering && PreviousAttackIsChain(attackData)))
         {
             return true;
         }
@@ -63,21 +64,16 @@ public class AttackController : MonoBehaviour
 
     void PlayAttack(AttackData attackData)
     {
-        currentAttack = attackData;
         whooshSource.Play();
-        fighter.SetIsNeutral(false);
-        fighter.SetIsRecovering(false);
-        fighter.SetIsAttacking(true);
+        fighter.SetFighterState(FighterState.Attacking);
+        currentAttack = attackData;
         anim.SetBool(attackData.attackAnimation, true);
-        Debug.Log("Atack: " + currentAttack.name);
+        Debug.Log("Attack: " + currentAttack.name);
     }
 
     public void FinishAttack()
     {
-        Debug.Log("finishing" + currentAttack.name);
         currentAttack = null;
-        fighter.SetIsNeutral(true);
-        fighter.SetIsRecovering(false);
-        fighter.SetIsAttacking(false);
+        fighter.SetFighterState(FighterState.Neutral);
     }
 }

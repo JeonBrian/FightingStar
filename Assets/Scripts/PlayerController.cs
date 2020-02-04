@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ownerFighter.isNeutral)
+        if (ownerFighter.fighterState == FighterState.Neutral ||
+            ownerFighter.fighterState == FighterState.Walking)
         {
             moveCharacter();
         }
@@ -45,37 +46,36 @@ public class PlayerController : MonoBehaviour
         // Clear bools 
         anim.SetBool("WalkF", false);
         anim.SetBool("WalkB", false);
-        anim.SetBool("JumpN", false);
-        anim.SetBool("Crouch", false);
 
         // Depending on input, perform action
         switch (moveState)
         {
             case MoveState.Forward:
+                ownerFighter.SetFighterState(FighterState.Walking);
                 anim.SetBool("WalkF", true);
                 moveDir = new Vector3(0, 0, 1);
                 moveDir *= speed;
                 moveDir = transform.TransformDirection(moveDir);
                 break;
             case MoveState.Back:
+                ownerFighter.SetFighterState(FighterState.Walking);
                 anim.SetBool("WalkB", true);
                 moveDir = new Vector3(0, 0, -1);
                 moveDir *= speed;
                 moveDir = transform.TransformDirection(moveDir);
                 break;
             case MoveState.Jump:
-                anim.SetBool("JumpN", true);
                 break;
             case MoveState.Crouch:
-                anim.SetBool("Crouch", true);
                 break;
             default:
+                ownerFighter.SetFighterState(FighterState.Neutral);
                 break;
         }
 
         // Move character in space
         // Debug.Log("Move: " + moveState);
-        if (anim.GetBool("IsNeutral"))
+        if (moveState != MoveState.Neutral)
         {
             controller.Move(moveDir * Time.deltaTime);
         }

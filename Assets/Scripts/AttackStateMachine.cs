@@ -13,9 +13,8 @@ public class AttackStateMachine : StateMachineBehaviour
     {
         Fighter fighter = animator.GetComponent<Fighter>();
         AttackController attackController = animator.GetComponent<AttackController>();
-        if (fighter.isRecovering && !fighter.isAttacking)
+        if (fighter.fighterState == FighterState.Recovering)
         {
-            Debug.Log("he is recovering and not attacking, so set back to neutral");
             attackController.FinishAttack();
         }
     }
